@@ -5,14 +5,17 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     public int points = 1;
-    public GameObject player; // Assign in the inspector
+    [SerializeField] private LayerMask playerLayer;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player)
+        // Check if the colliding object's layer matches the player layer
+        if ((playerLayer.value & (1 << other.gameObject.layer)) > 0)
         {
-            // Invoke score increase and destroy the coin
+            // Increase the score in the ScoreKeeper
             ScoreKeeper.Instance.OnPickup(points);
+
+            // Destroy the coin object after it's collected
             Destroy(gameObject);
         }
     }
