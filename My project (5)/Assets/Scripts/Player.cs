@@ -41,4 +41,11 @@ public class Player : MonoBehaviour
         transform.Translate(direction * power * acceleration * Time.deltaTime, Space.Self);
         transform.Rotate(rotationAxis * turningRate * turn * Time.deltaTime, Space.Self);
     }
+
+
+
+    /// Code review by Dev A 
+    // Add a null check to avoid runtime errors if the InputAction setup fails.
+
+
 }

@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Coin : MonoBehaviour
@@ -19,4 +21,9 @@ public class Coin : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    /// Code Review by Dev A 
+    // Null Check for ScoreKeeper Instance:
+    // Add a null check before calling ScoreKeeper.Instance.OnPickup(points) to prevent errors in case the singleton is not initialized.
+    // Use object pooling for coins if many instances are needed in the scene.
 }

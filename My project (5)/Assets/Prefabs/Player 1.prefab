@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2052067760554054676}
   - component: {fileID: 1627006203226143054}
   - component: {fileID: 5284399371867403185}
+  - component: {fileID: 4877764535817386849}
   m_Layer: 3
   m_Name: Player 1
   m_TagString: Untagged
@@ -133,7 +134,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -150,8 +151,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b18b2c27e9be34c8f458e2552b58f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 0
-  turningRate: 0
+  power: 3
+  turningRate: 200
+--- !u!114 &4877764535817386849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5777766583354450618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0edc5e0bad6a8fe48ba25916d7829623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 404856894045757054}
 --- !u!1 &5924032391141733535
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,6 +372,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 710df7528054c574c9e01a8e1e813a50, type: 3}
+--- !u!114 &404856894045757054 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7896982487185243004, guid: 710df7528054c574c9e01a8e1e813a50, type: 3}
+  m_PrefabInstance: {fileID: 7496769930803488002}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &3625139240615350604 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6505155434639930446, guid: 710df7528054c574c9e01a8e1e813a50, type: 3}
