@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,22 @@ using UnityEngine;
 public class ScoreKeeper: MonoBehaviour
 {
     public static ScoreKeeper Instance { get; private set; }
+    public event Action<int> ScoreChanged;
+
     private int currentScore;
-    // Start is called before the first frame update
+
+    public int CurrentScore
+    {
+        get { return currentScore; }
+        private set
+        {
+            currentScore = value;
+            ScoreChanged?.Invoke(currentScore);
+        }
+    }
+
     private void Awake()
     {
-        // Singleton pattern implementation
         if (Instance == null)
         {
             Instance = this;
@@ -20,10 +32,15 @@ public class ScoreKeeper: MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public int GetScore() => currentScore;
 
     public void OnPickup(int points)
     {
-        currentScore += points;
+        CurrentScore += points;
+    }
+
+    // New GetScore() method
+    public int GetScore()
+    {
+        return CurrentScore;
     }
 }

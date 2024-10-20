@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
     [SerializeField] private TextMeshProUGUI scoreText;
-    // Start is called before the first frame update
+
     void Awake()
     {
         // Singleton pattern implementation
@@ -20,14 +20,11 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 
-    // Update is called once per frame
     void Update()
     {
-        scoreText.text = "Score: " + ScoreKeeper.Instance.GetScore();
+        // Use the CurrentScore property of ScoreKeeper
+        scoreText.text = "Score: " + ScoreKeeper.Instance.CurrentScore;
     }
-
-
 }
