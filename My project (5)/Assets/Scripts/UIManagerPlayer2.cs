@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-using Palmmedia.ReportGenerator.Core.Parser.Analysis;
+using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class UIManagerPlayer2 : MonoBehaviour
 {
-    public static UIManager Instance { get; private set; }
-    [SerializeField] private TextMeshProUGUI player1ScoreText;
+    public static UIManagerPlayer2 Instance { get; private set; }
+    [SerializeField] private TextMeshProUGUI player2ScoreText;
 
     private void Awake()
     {
@@ -26,7 +25,7 @@ public class UIManager : MonoBehaviour
     // Update Player 1's score in the UI
     void Update()
     {
-        player1ScoreText.text = "Player 1 Score: " + ScoreKeeper.Instance.Player1Score;
+        player2ScoreText.text = "Player 2 Score: " + ScoreKeeper.Instance.Player2Score;
     }
 
 }

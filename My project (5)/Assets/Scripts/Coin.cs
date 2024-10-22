@@ -12,16 +12,15 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the colliding object's layer matches Player 1 or Player 2
         if ((playerLayer.value & (1 << other.gameObject.layer)) > 0)
         {
-            // Increase Player 1's score
-            ScoreKeeper.Instance.OnPlayerPickup(points);
+            Debug.Log("Player 1 collided with coin.");
+            ScoreKeeper.Instance.OnPlayer1Pickup(points);
             Destroy(gameObject);
         }
         else if ((player2Layer.value & (1 << other.gameObject.layer)) > 0)
         {
-            // Increase Player 2's score
+            Debug.Log("Player 2 collided with coin.");
             ScoreKeeper.Instance.OnPlayer2Pickup(points);
             Destroy(gameObject);
         }
