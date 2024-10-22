@@ -50,6 +50,7 @@ public class ScoreKeeper: MonoBehaviour
         return CurrentScore;
     }
 
+    /// Code Review by Dev B 
     // Since there’s already a public property (CurrentScore), having an additional GetScore() method is redundant.
     // It’s better to keep just the property to reduce confusion and maintain a single way of accessing the score.
 

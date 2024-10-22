@@ -8,20 +8,24 @@ public class Coin : MonoBehaviour
 {
     public int points = 1;
     [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private LayerMask player2Layer;
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the colliding object's layer matches the player layer
+        // Check if the colliding object's layer matches Player 1 or Player 2
         if ((playerLayer.value & (1 << other.gameObject.layer)) > 0)
         {
-            // Increase the score in the ScoreKeeper
-            ScoreKeeper.Instance.OnPickup(points);
-
-            // Destroy the coin object after it's collected
+            // Increase Player 1's score
+            ScoreKeeper.Instance.OnPlayerPickup(points);
+            Destroy(gameObject);
+        }
+        else if ((player2Layer.value & (1 << other.gameObject.layer)) > 0)
+        {
+            // Increase Player 2's score
+            ScoreKeeper.Instance.OnPlayer2Pickup(points);
             Destroy(gameObject);
         }
     }
-
     /// Code Review by Dev A 
     // Null Check for ScoreKeeper Instance:
     // Add a null check before calling ScoreKeeper.Instance.OnPickup(points) to prevent errors in case the singleton is not initialized.
